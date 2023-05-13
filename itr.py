@@ -96,7 +96,10 @@ def calculate_income_tax_new(total_income):
    # apply the tax rate of 30% for income above Rs.15,00,000  
    tax +=total_income * .3  
    # apply the health and education cess of 4% on the tax amount  
-   tax +=tax * .04  
+   cess= tax * 0.04
+   tax += cess
+   print(f"Health & Education cess (New regime) is ₹{cess}.") 
+   
    # apply the surcharge of 25% or reduced from earlier surcharge rate of 37% if applicable  
    if total_income > (50000000 - (250000 + (250000 / .05) + (250000 / .1) + (250000 / .15) + (250000 / .2) + (250000 / .25) + (35000000 / .3))):  
     # income above Rs.5 crore  
@@ -112,9 +115,9 @@ def convert_to_lakh(income):
 
 def difference(tax_new,tax_old):
   if tax_new-tax_old>=0 :
-    print(f"You will save ₹ {tax_new-tax_old} under new regime")
+    print(f"You will save ₹{tax_new-tax_old} under new regime")
   else :
-    print(f"Your tax difference is ₹ {tax_new-tax_old}, you won't save any tax in the new regime.")
+    print(f"Your tax difference is ₹{tax_new-tax_old}, you won't save any tax in the new regime.")
 
 def deductions_old(investment_80C,medical_80D,home_loan_24b):
 
@@ -147,13 +150,13 @@ def deductions_old(investment_80C,medical_80D,home_loan_24b):
   total_deductions += home_loan_24b
 
   # display input deductions
-  print(f"80C Deduction : {investment_80C}")
-  print(f"Medical 80D deduction : {medical_80D}")
-  print(f"Home loan 24B deduction : {home_loan_24b}")
+  print(f"80C Deduction : ₹{investment_80C}")
+  print(f"Medical 80D deduction : ₹{medical_80D}")
+  print(f"Home loan 24B deduction : ₹{home_loan_24b}")
 
 
   # display the total deductions
-  print(f"Your total deductions under the old regime are {total_deductions}.")
+  print(f"Your total deductions under the old regime are ₹{total_deductions}")
 
 
 #################################################################################################################################
@@ -191,9 +194,9 @@ else:
                   
                   # tax_calculation(FY_Year,AY_Year)
                   tax_calculation("2022-23","2023-24",income,regime)
-                  print(f"Annual income entered is ₹ {convert_to_lakh(income)} lakh.")
-                  print(f"You have to pay ₹ {calculate_income_tax_old(income)} under old tax regime.")
-                  print(f"You have to pay ₹ {calculate_income_tax_new(income)} under new tax regime.")
+                  print(f"Annual income entered is ₹{convert_to_lakh(income)} lakh")
+                  print(f"You have to pay ₹{calculate_income_tax_old(income)} under old tax regime")
+                  print(f"You have to pay ₹{calculate_income_tax_new(income)} under new tax regime")
                   tax_new = calculate_income_tax_new(income)
                   tax_old = calculate_income_tax_old(income)
                   difference(tax_new,tax_old)
