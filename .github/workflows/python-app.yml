@@ -40,3 +40,5 @@ jobs:
     - name: Coverage
       run: |  
         coverage run -m unittest discover
+        coverage xml
+        coverage report
