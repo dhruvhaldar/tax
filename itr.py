@@ -190,7 +190,7 @@ else:
         # ask the user to enter their total income_from_salary as an integer
         
         #income_from_salary = input("Please enter your total income_from_salary as an integer:\n")
-        income_from_salary = 1150000 # Input income_from_salary
+        income_from_salary = 1500000 # Input income_from_salary
         
         # validate the input and convert it to an integer
         try:
@@ -213,7 +213,7 @@ else:
                   new_income_tax_salary = calculate_income_from_salary_tax_new(income_from_salary)
                   old_income_tax_salary = calculate_income_from_salary_tax_old(income_from_salary)
                   
-                  print(f"You have to pay ₹{old_income_tax_salary} under old tax regime")
+                  print(f"\nYou have to pay ₹{old_income_tax_salary} under old tax regime")
                   print(f"You have to pay ₹{new_income_tax_salary} under new tax regime")
                   difference(new_income_tax_salary,old_income_tax_salary)
 
