@@ -18,3 +18,7 @@ For an income of 1500000, the tax calculation in the code will be as follows:
 7. Since the income is above 500000, a surcharge of 10% will be applied on the tax amount, which amounts to 28750 (287500 * 0.1).
 8. The total tax liability after cess and surcharge will be the sum of the tax amount and the surcharge, which is 317750 (287500 + 28750).
 9. Therefore, the tax rate for an income of 1500000 according to the code is 21.18% (317750 / 1500000 * 100)
+
+
+## Output
+
