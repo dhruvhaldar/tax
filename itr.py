@@ -4,6 +4,8 @@ def tax_calculation(fy_year, ay_year, income_from_salary, regime):
   print(f"\n1.1 Input")
   if regime==1:
     print(f"You have selected the old regime")
+  if regime==2:
+    print(f"You have selected the new regime")  
                     
 # define a function to calculate income_from_salary tax under the old regime
 def calculate_income_from_salary_tax_old(total_income_from_salary):
@@ -49,66 +51,66 @@ def calculate_income_from_salary_tax_old(total_income_from_salary):
 
 # define a function to calculate income_from_salary tax under the new regime 
 def calculate_income_from_salary_tax_new(total_income_from_salary): 
-   # assume total_income_from_salary is a positive integer 
-   # assume the tax rates and slabs are as per the web page context 
-   # assume the age group is below 60 years 
-   # initialize the tax variable to zero 
-   tax = 0 
-   # apply the basic exemption limit of Rs.2,50,000 
-   if total_income_from_salary <=250000: 
-     return tax 
-   else: 
-     total_income_from_salary -=250000 
-   # apply the tax rate of 5% for income_from_salary up to Rs.5,00,000 
-   if total_income_from_salary <=250000: 
-     tax +=total_income_from_salary * .05 
-     return tax 
-   else: 
-     tax +=250000 * .05 
-     total_income_from_salary -=250000 
-   # apply the tax rate of 10% for income_from_salary up to Rs.7,50,000 
-   if total_income_from_salary <=250000: 
-     tax +=total_income_from_salary * .1 
-     return tax 
-   else: 
-     tax +=250000 * .1 
-     total_income_from_salary -=250000 
-   # apply the tax rate of 15% for income_from_salary up to Rs.10,00,000 
-   if total_income_from_salary <=250000: 
-     tax +=total_income_from_salary * .15 
-     return tax 
-   else: 
-     tax +=250000 * .15 
-     total_income_from_salary -=250000 
-   # apply the tax rate of 20% for income_from_salary up to Rs.12,50,000 
-   if total_income_from_salary <=250000: 
-     tax +=total_income_from_salary * .2 
-     return tax 
-   else: 
-     tax +=250000 * .2 
-     total_income_from_salary -=250000  
-   # apply the tax rate of 25% for income_from_salary up to Rs.15,00,000  
-   if total_income_from_salary <=250000:  
-     tax +=total_income_from_salary * .25  
-     return tax  
-   else:  
-     tax +=250000 * .25  
-     total_income_from_salary -=250000  
-   # apply the tax rate of 30% for income_from_salary above Rs.15,00,000  
-   tax +=total_income_from_salary * .3  
-   # apply the health and education cess of 4% on the tax amount  
-   cess= tax * 0.04
-   tax += cess
-   print(f"Health & Education cess (New regime) is ₹{cess}.") 
+  # assume total_income_from_salary is a positive integer 
+  # assume the tax rates and slabs are as per the web page context 
+  # assume the age group is below 60 years 
+  # initialize the tax variable to zero 
+  tax = 0 
+  # apply the basic exemption limit of Rs.2,50,000 
+  if total_income_from_salary <=250000: 
+    return tax 
+  else: 
+    total_income_from_salary -=250000 
+  # apply the tax rate of 5% for income_from_salary up to Rs.5,00,000 
+  if total_income_from_salary <=250000: 
+    tax +=total_income_from_salary * .05 
+    return tax 
+  else: 
+    tax +=250000 * .05 
+    total_income_from_salary -=250000 
+  # apply the tax rate of 10% for income_from_salary up to Rs.7,50,000 
+  if total_income_from_salary <=250000: 
+    tax +=total_income_from_salary * .1 
+    return tax 
+  else: 
+    tax +=250000 * .1 
+    total_income_from_salary -=250000 
+  # apply the tax rate of 15% for income_from_salary up to Rs.10,00,000 
+  if total_income_from_salary <=250000: 
+    tax +=total_income_from_salary * .15 
+    return tax 
+  else: 
+    tax +=250000 * .15 
+    total_income_from_salary -=250000 
+  # apply the tax rate of 20% for income_from_salary up to Rs.12,50,000 
+  if total_income_from_salary <=250000: 
+    tax +=total_income_from_salary * .2 
+    return tax 
+  else: 
+    tax +=250000 * .2 
+    total_income_from_salary -=250000  
+  # apply the tax rate of 25% for income_from_salary up to Rs.15,00,000  
+  if total_income_from_salary <=250000:  
+    tax +=total_income_from_salary * .25  
+    return tax  
+  else:  
+    tax +=250000 * .25  
+    total_income_from_salary -=250000  
+  # apply the tax rate of 30% for income_from_salary above Rs.15,00,000  
+  tax +=total_income_from_salary * .3  
+  # apply the health and education cess of 4% on the tax amount  
+  cess= tax * 0.04
+  tax += cess
+  print(f"Health & Education cess (New regime) is ₹{cess}.") 
    
-   # apply the surcharge of 25% or reduced from earlier surcharge rate of 37% if applicable  
-   if total_income_from_salary > (50000000 - (250000 + (250000 / .05) + (250000 / .1) + (250000 / .15) + (250000 / .2) + (250000 / .25) + (35000000 / .3))):  
-    # income_from_salary above Rs.5 crore  
-     surcharge_rate = min(.25,.37)  
-     surcharge_amount = min(tax,surcharge_rate*tax)  
-     return round(tax+surcharge_amount)  
-   else:  
-     return round(tax)  
+  # apply the surcharge of 25% or reduced from earlier surcharge rate of 37% if applicable  
+  if total_income_from_salary > (50000000 - (250000 + (250000 / .05) + (250000 / .1) + (250000 / .15) + (250000 / .2) + (250000 / .25) + (35000000 / .3))):  
+  # income_from_salary above Rs.5 crore  
+    surcharge_rate = min(.25,.37)  
+    surcharge_amount = min(tax,surcharge_rate*tax)  
+    return round(tax+surcharge_amount)  
+  else:  
+    return round(tax)  
 
 def convert_to_lakh(income_from_salary):
   lakh = income_from_salary / 100000
@@ -167,7 +169,7 @@ def deductions_old(investment_80C,medical_80D,home_loan_24b):
 # ask the user to select old or new regime as an option (1 or 2)
 
 #regime = input("Please select your preferred regime:\n1.Old\n2.New\n")
-regime = 1 # Selected old regime
+regime = 2 # Selected old regime
 
 # validate the input and convert it to an integer
 try:
