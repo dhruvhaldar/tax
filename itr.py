@@ -1,6 +1,7 @@
 def tax_calculation(fy_year, ay_year, income_from_salary, regime):
   print(f"\n\nFY {fy_year} (AY {ay_year}) TAX CALCULATION")
-  
+  print(f"\n1. Income from salary")
+  print(f"\n1.1 Input")
   if regime==1:
     print(f"You have selected the old regime")
                     
@@ -150,12 +151,14 @@ def deductions_old(investment_80C,medical_80D,home_loan_24b):
   total_deductions += home_loan_24b
 
   # display input deductions
+  print(f"\n2.1 Input")
   print(f"80C Deduction : ₹{investment_80C}")
   print(f"Medical 80D deduction : ₹{medical_80D}")
   print(f"Home loan 24B deduction : ₹{home_loan_24b}")
 
 
   # display the total deductions
+  print(f"\n2.2 Output")
   print(f"Your total deductions under the old regime are ₹{total_deductions}")
 
 
@@ -194,16 +197,19 @@ else:
                   
                   # tax_calculation(FY_Year,AY_Year)
                   tax_calculation("2022-23","2023-24",income_from_salary,regime)
-                  print(f"Annual income entered is ₹{convert_to_lakh(income_from_salary)} lakh")
-                  print(f"You have to pay ₹{calculate_income_from_salary_tax_old(income_from_salary)} under old tax regime")
-                  print(f"You have to pay ₹{calculate_income_from_salary_tax_new(income_from_salary)} under new tax regime")
-                  tax_new = calculate_income_from_salary_tax_new(income_from_salary)
-                  tax_old = calculate_income_from_salary_tax_old(income_from_salary)
-                  difference(tax_new,tax_old)
+                  print(f"Annual income entered is ₹{convert_to_lakh(income_from_salary)} lakh\n")
+                  
+                  
+                  print(f"1.2 Output")
+                  new_income_tax_salary = calculate_income_from_salary_tax_new(income_from_salary)
+                  old_income_tax_salary = calculate_income_from_salary_tax_old(income_from_salary)
+                  print(f"You have to pay ₹{old_income_tax_salary} under old tax regime")
+                  print(f"You have to pay ₹{new_income_tax_salary} under new tax regime")
+                  difference(new_income_tax_salary,old_income_tax_salary)
 
                 ##########################################################################################################
                 if regime==1:
-                  print(f"\nDEDUCTION CALCULATION")
+                  print(f"\n\n2. DEDUCTION CALCULATION")
                   
                   #deductions_old(investment_80C,medical_80D,home_loan_24b)
                   deductions_old(60000,25000,0)
