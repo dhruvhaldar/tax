@@ -1,5 +1,5 @@
 import sys
-sys.stdout = open('output.md', 'w')
+sys.stdout = open('output.txt', 'w')
 
 def tax_calculation(fy_year, ay_year, regime):
   print(f"FY {fy_year} (AY {ay_year}) TAX CALCULATION")
