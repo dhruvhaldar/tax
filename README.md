@@ -1,2 +1,1 @@
-# tax
- 
+# Income Tax Calculation for salaried individuals
