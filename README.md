@@ -5,7 +5,7 @@ Helps you to get ITR-related stuff using Python
 ## Calculate tax under old regime (function calculate_income_from_salary_tax_old)
   
 ### Example:
-For an income of 1500000, the tax calculation in the code will be as follows:
+For an income of 1500000, the tax calculation in the function will be as follows:
 
 1. The basic exemption limit of Rs. 2,50,000 will be applied, so the taxable income will be 1250000 (1500000 - 250000).
 2. The first slab of 250000 will be taxed at a rate of 5%, which amounts to 12500 (250000 * 0.05).
