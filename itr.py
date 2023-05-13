@@ -176,7 +176,7 @@ def deductions_old(investment_80C,medical_80D,home_loan_24b):
 # ask the user to select old or new regime as an option (1 or 2)
 
 #regime = input("Please select your preferred regime:\n1.Old\n2.New\n")
-regime = 2 # Selected old regime
+regime = 1 # Selected old regime
 
 # validate the input and convert it to an integer
 try:
