@@ -28,6 +28,19 @@ def calculate_income_from_salary_tax_old(total_income_from_salary):
 
   Returns:
       tax (float): Total Income tax from old regime
+  
+  Example:
+      For an income of 1500000, the tax calculation in the code will be as follows:
+  
+      1. The basic exemption limit of Rs. 2,50,000 will be applied, so the taxable income will be 1250000 (1500000 - 250000).
+      2. The first slab of 250000 will be taxed at a rate of 5%, which amounts to 12500 (250000 * 0.05).
+      3. The second slab of 250000 will be taxed at a rate of 20%, which amounts to 50000 (250000 * 0.2).
+      4. The remaining income of 750000 will be taxed at a rate of 30%, which amounts to 225000 (750000 * 0.3).
+      5. The total tax liability before cess and surcharge will be the sum of the tax amounts for each slab, which is 287500 (12500 + 50000 + 225000).
+      6. A health and education cess of 4% will be applied on the tax amount, which amounts to 11500 (287500 * 0.04).
+      7. Since the income is above 500000, a surcharge of 10% will be applied on the tax amount, which amounts to 28750 (287500 * 0.1).
+      8. The total tax liability after cess and surcharge will be the sum of the tax amount and the surcharge, which is 317750 (287500 + 28750).
+      9. Therefore, the tax rate for an income of 1500000 according to the code is 21.18% (317750 / 1500000 * 100).
   """
   # assume total_income_from_salary is a positive integer
   # assume the tax rates and slabs are as per the web page context
@@ -61,13 +74,13 @@ def calculate_income_from_salary_tax_old(total_income_from_salary):
   # define a list of surcharge slabs and rates
   surcharge_slabs = [5000000 - (250000 + (250000 / .05) + (500000 / .2)), 10000000 - (250000 + (250000 / .05) + (500000 / .2) + (5000000 / .3)), float('inf')]
   surcharge_rates = [0.1, 0.15, 0]
-  
   # use a for loop to iterate over the surcharge slabs and rates
   for i in range(len(surcharge_slabs)):
     # apply the surcharge rate for the current slab
     if total_income_from_salary > surcharge_slabs[i]:
       tax += tax * surcharge_rates[i]
       break # exit the loop if the income_from_salary is above the slab
+  
   return tax
 
 def calculate_income_from_salary_tax_new(total_income_from_salary):
