@@ -1,5 +1,5 @@
-import sys
-sys.stdout = open('output.txt', 'w')
+#import sys
+#sys.stdout = open('output.txt', 'w')
 
 def tax_calculation(fy_year, ay_year, regime):
   print(f"FY {fy_year} (AY {ay_year}) TAX CALCULATION")
@@ -299,4 +299,4 @@ else:
                   deduction = calculate_80_deduction(section_80C_ELSS, section_80C_PPF, section_80C_Life, section_80CCC, section_80CCD1, section_80CCD1b, section_80D, section_80E, section_80G, section_80TTA_Bank1, section_80TTA_Bank2, section_80TTA_Bank3, section_80TTA_Bank4, section_80TTA_Bank5, section_80TTB, section_24b)
                   
 # close the file                  
-sys.stdout.close()
+#sys.stdout.close()
