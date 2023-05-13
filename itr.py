@@ -190,7 +190,7 @@ else:
         # ask the user to enter their total income_from_salary as an integer
         
         #income_from_salary = input("Please enter your total income_from_salary as an integer:\n")
-        income_from_salary = 1500000 # Input income_from_salary
+        income_from_salary = 1150000 # Input income_from_salary
         
         # validate the input and convert it to an integer
         try:
