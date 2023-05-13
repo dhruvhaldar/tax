@@ -130,6 +130,27 @@ def difference(tax_new,tax_old):
   else :
     print(f"Your tax difference is Rs {tax_new-tax_old}, you won't save any tax in the new regime.")
 
+# Define a function to calculate 80CCE deduction
+def calculate_80CCE_deduction(income, section_80C_PPF,section_80C_Life, section_80CCC, section_80CCD1, section_80CCD1b): 
+  # Initialize the deduction amount deduction = 0
+  # Calculate the total amount of section 80C, 80CCC and 80CCD(1)
+  section_80C = section_80C_PPF + section_80C_Life
+  total_80C = section_80C + section_80CCC + section_80CCD1
+
+  # Check if the total amount exceeds the limit of Rs 1.5 lakh
+  if total_80C > 150000:
+    # Set the deduction amount to Rs 1.5 lakh
+    deduction = 150000
+  else:
+    # Set the deduction amount to the total amount
+    deduction = total_80C
+
+  # Add the additional deduction of Rs 50,000 for section 80CCD(1b)
+  deduction += section_80CCD1b
+
+  # Return the deduction amount
+  return deduction
+
 def deductions_old(investment_80C,medical_80D,home_loan_24b):
 
   # initialize the total deductions
@@ -267,6 +288,6 @@ else:
                 ##########################################################################################################
                 if regime==1:
                   print(f"\n\n2. DEDUCTION CALCULATION")
-                  
+                  80C()
                   #deductions_old(investment_80C,medical_80D,home_loan_24b)
                   deductions_old(60000,25000,0)
