@@ -198,8 +198,9 @@ else:
                   tax_calculation("2022-23","2023-24",income,regime)
                   income_in_lakh=convert_to_lakh(income)
                   print(f"Annual income entered is ₹ {income_in_lakh} lakh.")
+                  calculate_income_tax_old(income)
+                  calculate_income_tax_new(income)
 
-                
                 ##########################################################################################################
                 if regime==1:
                   print(f"\nDEDUCTION CALCULATION")
