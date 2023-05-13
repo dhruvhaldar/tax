@@ -32,6 +32,7 @@ Annual income entered is ₹15.0 lakh
 1.2 Output
 Health & Education cess (New regime) is ₹18000.0.
 Health & Education cess (Old regime) is ₹10500.0.
+
 You have to pay ₹300300.0 under old tax regime
 You have to pay ₹514800.0 under new tax regime
 You will save ₹214500.0 under new regime
