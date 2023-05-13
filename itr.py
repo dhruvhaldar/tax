@@ -9,7 +9,8 @@ def tax_calculation(fy_year, ay_year, income_from_salary, regime):
                     
 # define a function to calculate income_from_salary tax under the old regime
 def calculate_income_from_salary_tax_old(total_income_from_salary):
-  """This function is for calculating income tax on total income earned from salary in the old tax regime in India. The tax rates and slabs are assumed as per the web page context. The age group is assumed to be below 60 years.
+  """
+  This function is for calculating income tax on total income earned from salary in the old tax regime in India. The tax rates and slabs are assumed as per the web page context. The age group is assumed to be below 60 years.
   
   The function follows a progressive tax system where the tax rates increase with increasing income. The tax slabs and rates are defined in two lists, slabs and rates respectively. The slabs list contains the upper limit of each tax slab, while the rates list contains the tax rate for each slab.
   
@@ -170,11 +171,57 @@ def deductions_old(investment_80C,medical_80D,home_loan_24b):
   print(f"\n2.2 Output")
   print(f"Your total deductions under the old regime are ₹{total_deductions}")
 
+##############################################################################
+
+def income_from_hp(type,home_loan_interest):
+  
+  print(f"\n3. Income from house property")
+  # input the type of house property
+  #type = input("Enter the type of house property: self-occupied, let out or deemed let out: ")
+
+  # initialize the income from house property variable to zero
+  income_from_hp = 0
+
+  # if the type is self-occupied
+  if type == "self-occupied":
+    # input the home loan interest
+    #home_loan_interest = float(input("Enter the home loan interest paid during the year: ")) 
+    
+    # check if the interest exceeds the limit of 2 lakh 
+    if home_loan_interest > 200000: home_loan_interest = 200000
+    # deduct the interest from the income from house property
+    income_from_hp -= home_loan_interest
+
+  # if the type is let out or deemed let out
+  elif type in ["let out", "deemed let out"]:
+    # input the gross annual value 
+    #gross_annual_value = float(input("Enter the gross annual value of the property: ")) 
+    gross_annual_value = 100000.0
+    # input the property tax 
+    #property_tax = float(input("Enter the property tax paid during the year: ")) 
+    property_tax = 40000.0
+    # deduct the property tax from the gross annual value 
+    net_annual_value = gross_annual_value - property_tax 
+    # deduct 30% of net annual value as standard deduction 
+    standard_deduction = net_annual_value * 0.3 
+    net_annual_value -= standard_deduction 
+    # input the home loan interest 
+    #home_loan_interest = float(input("Enter the home loan interest paid during the year: ")) 
+    # deduct the interest from the net annual value 
+    net_annual_value -= home_loan_interest 
+    # assign the net annual value to the income from house property 
+    income_from_hp = net_annual_value 
+    
+  else: 
+    # print an error message for invalid input 
+    print("Invalid input. Please enter a valid type of house property.")
+
+  return income_from_hp
 
 #################################################################################################################################
+# MAIN #
 
 # ask the user to select old or new regime as an option (1 or 2)
-
 #regime = input("Please select your preferred regime:\n1.Old\n2.New\n")
 regime = 1 # Selected old regime
 
