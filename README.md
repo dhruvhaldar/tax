@@ -2,7 +2,7 @@
 
 Helps you to get ITR-related stuff using Python
 
-function calculate_income_from_salary_tax_old
+## Calculate tax under old regime (function calculate_income_from_salary_tax_old)
 
 This function is for calculating income tax on total income earned from salary in the old tax regime in India. The tax rates and slabs are assumed as per the web page context. The age group is assumed to be below 60 years.
   
