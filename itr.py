@@ -130,67 +130,52 @@ def difference(tax_new,tax_old):
   else :
     print(f"Your tax difference is Rs {tax_new-tax_old}, you won't save any tax in the new regime.")
 
-# Define a function to calculate 80CCE deduction
-def calculate_80CCE_deduction(income, section_80C_PPF,section_80C_Life, section_80CCC, section_80CCD1, section_80CCD1b): 
-  # Initialize the deduction amount deduction = 0
+
+def calculate_80_deduction(income, section_80C_ELSS, section_80C_PPF, section_80C_Life, section_80CCC, section_80CCD1, section_80CCD1b, section_80D, section_80E, section_80G, section_80TTA, section_80TTB, section_24b): 
+  
+  # Initialize the deduction amount 
+  total_deductions = 0
+  
   # Calculate the total amount of section 80C, 80CCC and 80CCD(1)
-  section_80C = section_80C_PPF + section_80C_Life
-  total_80C = section_80C + section_80CCC + section_80CCD1
+  total_80C = section_80C_ELSS + section_80C_PPF + section_80C_Life + section_80CCC + section_80CCD1
 
   # Check if the total amount exceeds the limit of Rs 1.5 lakh
   if total_80C > 150000:
     # Set the deduction amount to Rs 1.5 lakh
-    deduction = 150000
+    section_80CCE = 150000
   else:
     # Set the deduction amount to the total amount
-    deduction = total_80C
-
-  # Add the additional deduction of Rs 50,000 for section 80CCD(1b)
-  deduction += section_80CCD1b
-
-  # Return the deduction amount
-  return deduction
-
-def deductions_old(investment_80C,medical_80D,home_loan_24b):
-
-  # initialize the total deductions
-  total_deductions = 0
-
-  # input the investment under section 80C
-  #investment_80C = float(input("Enter your investment under section 80C: "))
-  # 80C Investment set as function parameter
-
-  # check if the investment exceeds the limit of 1.5 lakh
-  if investment_80C > 150000: investment_80C = 150000
-  total_deductions += investment_80C
-
-  # input the medical insurance premium under section 80D
-  #medical_80D = float(input("Enter your medical insurance premium under section 80D: "))
-  # Medical insurance premium set as function parameter
-
-
-  # check if the premium exceeds the limit of 25,000
-  if medical_80D > 25000: medical_80D = 25000
-  total_deductions += medical_80D
-
-  # input the home loan interest under section 24(b)
-  #home_loan_24b = float(input("Enter your home loan interest under section 24(b): "))
-  # Home loan set as function parameter
-
+    section_80CCE = total_80C
+    
+  # Add the deduction amount for each section
+  total_deductions += section_80CCE # Deduction for investments or expenditures under Section 80C, 80CCC, 80CCD(1) and 80CCD(1b)
+  total_deductions += section_80D # Deduction for medical insurance premium
+  total_deductions += section_80E # Deduction for interest on education loan
+  total_deductions += section_80G # Deduction for donations to specified funds or institutions
+  total_deductions += section_80TTA # Deduction for interest income from savings account (for non-senior citizens)
+  total_deductions += section_80TTB # Deduction for interest income from deposits (for senior citizens)
+  
   # check if the interest exceeds the limit of 2 lakh
-  if home_loan_24b > 200000: home_loan_24b = 200000
-  total_deductions += home_loan_24b
+  if section_24b > 200000: section_24b = 200000
+  total_deductions += section_24b # Deduction for interest on home loan
 
   # display input deductions
   print(f"\n2.1 Input")
-  print(f"80C Deduction : Rs {investment_80C}")
-  print(f"Medical 80D deduction : Rs {medical_80D}")
-  print(f"Home loan 24B deduction : Rs {home_loan_24b}")
+  print(f"Total 80CCE Deduction : Rs {section_80CCE}")
+  print(f"Medical 80D deduction : Rs {section_80D}")
+  print(f"Deduction for interest on education loan : Rs {section_80E}")
+  print(f"Deduction for donations to specified funds or institutions : Rs {section_80G}")
+  print(f"Deduction for interest income from savings account (for non-senior citizens) : Rs {section_80TTA}")
+  print(f"Deduction for interest income from deposits (for senior citizens) : Rs {section_80TTB}")
+  print(f"Home loan 24B deduction : Rs {section_24b}")
 
 
   # display the total deductions
   print(f"\n2.2 Output")
-  print(f"Your total deductions under the old regime are Rs {total_deductions}")
+  print(f"Your total deductions under the old regime Section 80 is Rs {total_deductions}")
+
+  # Return the deduction amount
+  return total_deductions
 
 ##############################################################################
 
@@ -288,6 +273,16 @@ else:
                 ##########################################################################################################
                 if regime==1:
                   print(f"\n\n2. DEDUCTION CALCULATION")
-                  80C()
-                  #deductions_old(investment_80C,medical_80D,home_loan_24b)
-                  deductions_old(60000,25000,0)
+                  section_80C_ELSS = 100000 # ELSS Funds
+                  section_80C_PPF = 0 # PPF
+                  section_80C_Life = 0 # Life Insurance premium 
+                  section_80CCC = 20000 # Pension plan 
+                  section_80CCD1 = 50000 # NPS contribution by employee or self-employed 
+                  section_80CCD1b = 50000 # Additional NPS contribution 
+                  section_80D = 25000 # Medical insurance premium for self and parents 
+                  section_80E = 40000 # Interest on education loan 
+                  section_80G = 10000 # Donation to a charitable trust 
+                  section_80TTA = 5000 # Interest income from savings account 
+                  section_80TTB = 0 # Not applicable as the taxpayer is not a senior citizen 
+                  section_24b = 150000 # Interest on home loan
+                  deduction = calculate_80_deduction(income_from_salary, section_80C_ELSS, section_80C_PPF, section_80C_Life, section_80CCC, section_80CCD1, section_80CCD1b, section_80D, section_80E, section_80G, section_80TTA, section_80TTB, section_24b)
