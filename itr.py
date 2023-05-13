@@ -102,7 +102,7 @@ def calculate_income_tax_new(total_income):
 
 def convert_to_lakh(income):
   lakh = income / 100000
-  return lakh
+  return int(lakh)
 
 
 # ask the user to select old or new regime as an option (1 or 2)
@@ -130,7 +130,7 @@ else:
                 # call the appropriate function based on the regime option and print the result
                 if regime>=1:
                   print(f"\n\nTAX CALCULATION")
-                  print(f"Annual income entered is {convert_to_lakh(income)}")
+                  print(f"Annual income entered is ₹ {convert_to_lakh(income)} lakh.")
                   if regime==1:
                     print(f"You have selected the old regime")
                   if regime==2:
@@ -143,4 +143,4 @@ else:
                   if tax_difference>=0 :
                     print(f"You will save ₹",tax_difference,"under new regime")
                   else :
-                    print(f"Your tax difference is ₹", tax_difference,". You won't save any tax in the new regime") 
+                    print(f"Your tax difference is ₹", tax_difference,", you won't save any tax in the new regime.") 
