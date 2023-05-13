@@ -3,17 +3,6 @@ def tax_calculation(fy_year, ay_year, income, regime):
   
   if regime==1:
     print(f"You have selected the old regime")
-  if regime==2:
-    total_income_tax_old = calculate_income_tax_old(income)
-    print(f"Your income tax under the old regime is ₹ {total_income_tax_old}.")
-    
-    total_income_tax_new = calculate_income_tax_new(income)
-    print(f"Your income tax under the new regime is ₹ {total_income_tax_new}.")
-    tax_difference = total_income_tax_new-total_income_tax_old
-    if tax_difference>=0 :
-      print(f"You will save ₹{tax_difference} under new regime")
-    else :
-      print(f"Your tax difference is ₹{tax_difference}, you won't save any tax in the new regime.")
                     
 # define a function to calculate income tax under the old regime
 def calculate_income_tax_old(total_income):
@@ -42,7 +31,7 @@ def calculate_income_tax_old(total_income):
       total_income -= slabs[i]
   # apply the health and education cess of 4% on the tax amount
   cess = tax * 0.04
-  print(f"Health & Education cess is ₹{cess}.")
+  print(f"Health & Education cess (Old regime) is ₹{cess}.")
   tax += cess
   
   # define a list of surcharge slabs and rates
@@ -110,7 +99,7 @@ def calculate_income_tax_new(total_income):
    tax +=tax * .04  
    # apply the surcharge of 25% or reduced from earlier surcharge rate of 37% if applicable  
    if total_income > (50000000 - (250000 + (250000 / .05) + (250000 / .1) + (250000 / .15) + (250000 / .2) + (250000 / .25) + (35000000 / .3))):  
-    #  # income above Rs.5 crore  
+    # income above Rs.5 crore  
      surcharge_rate = min(.25,.37)  
      surcharge_amount = min(tax,surcharge_rate*tax)  
      return round(tax+surcharge_amount)  
@@ -120,6 +109,12 @@ def calculate_income_tax_new(total_income):
 def convert_to_lakh(income):
   lakh = income / 100000
   return lakh
+
+def difference(tax_new,tax_old):
+  if tax_new-tax_old>=0 :
+    print(f"You will save ₹ {tax_new-tax_old} under new regime")
+  else :
+    print(f"Your tax difference is ₹ {tax_new-tax_old}, you won't save any tax in the new regime.")
 
 def deductions_old(investment_80C,medical_80D,home_loan_24b):
 
@@ -180,7 +175,7 @@ else:
         # ask the user to enter their total income as an integer
         
         #income = input("Please enter your total income as an integer:\n")
-        income = 115000 # Sample income
+        income = 1150000 # Input income
         
         # validate the input and convert it to an integer
         try:
@@ -196,10 +191,12 @@ else:
                   
                   # tax_calculation(FY_Year,AY_Year)
                   tax_calculation("2022-23","2023-24",income,regime)
-                  income_in_lakh=convert_to_lakh(income)
-                  print(f"Annual income entered is ₹ {income_in_lakh} lakh.")
-                  calculate_income_tax_old(income)
-                  calculate_income_tax_new(income)
+                  print(f"Annual income entered is ₹ {convert_to_lakh(income)} lakh.")
+                  print(f"You have to pay ₹ {calculate_income_tax_old(income)} under old tax regime.")
+                  print(f"You have to pay ₹ {calculate_income_tax_new(income)} under new tax regime.")
+                  tax_new = calculate_income_tax_new(income)
+                  tax_old = calculate_income_tax_old(income)
+                  difference(tax_new,tax_old)
 
                 ##########################################################################################################
                 if regime==1:
