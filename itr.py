@@ -1,3 +1,23 @@
+def tax_calculation():
+  print(f"\n\nTAX CALCULATION")
+  print(f"Annual income entered is ₹ {convert_to_lakh(income)} lakh.")
+  
+  if regime==1:
+    print(f"You have selected the old regime")
+  if regime==2:
+    print(f"You have selected the new regime")
+    
+    total_income_tax_old = calculate_income_tax_old(income)
+    print(f"Your income tax under the old regime is ₹ {total_income_tax_old}.")
+    
+    total_income_tax_new = calculate_income_tax_new(income)
+    print(f"Your income tax under the new regime is ₹ {total_income_tax_new}.")
+    tax_difference = total_income_tax_new-total_income_tax_old
+    if tax_difference>=0 :
+      print(f"You will save ₹",tax_difference,"under new regime")
+    else :
+      print(f"Your tax difference is ₹", tax_difference,", you won't save any tax in the new regime.")
+                    
 # define a function to calculate income tax under the old regime
 def calculate_income_tax_old(total_income):
   # assume total_income is a positive integer
@@ -104,7 +124,39 @@ def convert_to_lakh(income):
   lakh = income / 100000
   return int(lakh)
 
+def deductions_old():
 
+  # initialize the total deductions
+  total_deductions = 0
+
+  # input the investment under section 80C
+  investment_80C = float(input("Enter your investment under section 80C: "))
+
+  # check if the investment exceeds the limit of 1.5 lakh
+  if investment_80C > 150000: investment_80C = 150000
+  total_deductions += investment_80C
+
+  # input the medical insurance premium under section 80D
+  medical_80D = float(input("Enter your medical insurance premium under section 80D: "))
+
+  # check if the premium exceeds the limit of 25,000
+  if medical_80D > 25000: medical_80D = 25000
+  total_deductions += medical_80D
+
+  # input the home loan interest under section 24(b)
+  home_loan_24b = float(input("Enter your home loan interest under section 24(b): "))
+
+  # check if the interest exceeds the limit of 2 lakh
+  if home_loan_24b > 200000: home_loan_24b = 200000
+
+  # add the interest to the total deductions
+  total_deductions += home_loan_24b
+
+  #display the total deductions
+  print(f"Your total deductions under the old regime are {total_deductions}.")
+
+
+#################################################################################################################################
 # ask the user to select old or new regime as an option (1 or 2)
 regime = input("Please select your preferred regime:\n1.Old\n2.New\n")
 # validate the input and convert it to an integer
@@ -129,18 +181,8 @@ else:
             else:
                 # call the appropriate function based on the regime option and print the result
                 if regime>=1:
-                  print(f"\n\nTAX CALCULATION")
-                  print(f"Annual income entered is ₹ {convert_to_lakh(income)} lakh.")
-                  if regime==1:
-                    print(f"You have selected the old regime")
-                  if regime==2:
-                    print(f"You have selected the new regime")
-                  total_income_tax_old = calculate_income_tax_old(income)
-                  print(f"Your income tax under the old regime is ₹ {total_income_tax_old}.")
-                  total_income_tax_new = calculate_income_tax_new(income)
-                  print(f"Your income tax under the new regime is ₹ {total_income_tax_new}.")
-                  tax_difference = total_income_tax_new-total_income_tax_old
-                  if tax_difference>=0 :
-                    print(f"You will save ₹",tax_difference,"under new regime")
-                  else :
-                    print(f"Your tax difference is ₹", tax_difference,", you won't save any tax in the new regime.") 
+                  tax_calculation()
+                  #########################################################################################################
+                if regime==1:
+                  print(f"\nDEDUCTION CALCULATION")
+                  deductions_old()
