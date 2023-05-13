@@ -129,6 +129,7 @@ def deductions_old(investment_80C,medical_80D,home_loan_24b):
 
   # input the investment under section 80C
   #investment_80C = float(input("Enter your investment under section 80C: "))
+  # 80C Investment set as function parameter
 
   # check if the investment exceeds the limit of 1.5 lakh
   if investment_80C > 150000: investment_80C = 150000
@@ -136,6 +137,8 @@ def deductions_old(investment_80C,medical_80D,home_loan_24b):
 
   # input the medical insurance premium under section 80D
   #medical_80D = float(input("Enter your medical insurance premium under section 80D: "))
+  # Medical insurance premium set as function parameter
+
 
   # check if the premium exceeds the limit of 25,000
   if medical_80D > 25000: medical_80D = 25000
@@ -143,22 +146,29 @@ def deductions_old(investment_80C,medical_80D,home_loan_24b):
 
   # input the home loan interest under section 24(b)
   #home_loan_24b = float(input("Enter your home loan interest under section 24(b): "))
+  # Home loan set as function parameter
 
   # check if the interest exceeds the limit of 2 lakh
   if home_loan_24b > 200000: home_loan_24b = 200000
-
-  # add the interest to the total deductions
   total_deductions += home_loan_24b
 
-  #display the total deductions
+  # display input deductions
+  print(f"80C Deduction : {investment_80C}")
+  print(f"Medical 80D deduction : {medical_80D}")
+  print(f"Home loan 24B deduction : {home_loan_24b}")
+
+
+  # display the total deductions
   print(f"Your total deductions under the old regime are {total_deductions}.")
 
 
 #################################################################################################################################
 
 # ask the user to select old or new regime as an option (1 or 2)
+
 #regime = input("Please select your preferred regime:\n1.Old\n2.New\n")
 regime = 1 # Selected old regime
+
 # validate the input and convert it to an integer
 try:
     regime = int(regime)
