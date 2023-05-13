@@ -2,7 +2,8 @@
 
 Helps you to get ITR-related stuff using Python
 
-## Calculate tax under old regime (function calculate_income_from_salary_tax_old)
+## Calculate tax under old regime 
+(calculate_income_from_salary_tax_old())
   
 ### Example:
 For an income of 1500000, the tax calculation in the function will be as follows:
