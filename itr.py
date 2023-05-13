@@ -7,6 +7,7 @@ def calculate_income_tax_old(total_income):
   tax = 0
   # apply the basic exemption limit of Rs. 2,50,000
   if total_income <= 250000:
+    print("You don't have to pay tax")
     return tax
   else:
     total_income -= 250000
@@ -117,9 +118,16 @@ else:
             print("Invalid input. Please enter a positive integer.")
         else:
             if income <0:
-                print("Invalid input. Please enter a positive integer.")
+                print("Invalid input. Please enter a positive integer.")    
             else:
                 # call the appropriate function based on the regime option and print the result
                 if regime>=1:
-                    print(f"Your income tax under the old regime is {calculate_income_tax_old(income)}.")
-                    print(f"Your income tax under the new regime is {calculate_income_tax_new(income)}.")
+                  total_income_tax_old = calculate_income_tax_old(income)
+                  print(f"Your income tax under the old regime is ₹ {total_income_tax_old} .")
+                  total_income_tax_new = calculate_income_tax_new(income)
+                  print(f"Your income tax under the new regime is ₹ {total_income_tax_new}.")
+                  tax_difference = total_income_tax_new-total_income_tax_old
+                  if tax_difference>=0 :
+                    print(f"You will save ₹",tax_difference,"under new regime")
+                  else :
+                    print(f"Tax difference is ₹", tax_difference,". You won't save any tax in the new regime") 
