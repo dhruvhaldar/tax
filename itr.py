@@ -1,5 +1,8 @@
-def tax_calculation(fy_year, ay_year, income_from_salary, regime):
-  print(f"\n\nFY {fy_year} (AY {ay_year}) TAX CALCULATION")
+import sys
+sys.stdout = open('output.md', 'w')
+
+def tax_calculation(fy_year, ay_year, regime):
+  print(f"FY {fy_year} (AY {ay_year}) TAX CALCULATION")
   print(f"\n1. Income from salary")
   print(f"\n1.1 Input")
   if regime==1:
@@ -246,7 +249,7 @@ else:
         # ask the user to enter their total income_from_salary as an integer
         
         #income_from_salary = input("Please enter your total income_from_salary as an integer:\n")
-        income_from_salary = 1150000 # Input income_from_salary
+        income_from_salary = 1150000 # Input annual income_from_salary
         
         # validate the input and convert it to an integer
         try:
@@ -259,9 +262,10 @@ else:
             else:
                 # call the appropriate function based on the regime option and print the result
                 if regime>=1:
-                  
+                  fy_year = "2022-23"
+                  ay_year = "2023-24"
                   # tax_calculation(FY_Year,AY_Year)
-                  tax_calculation("2022-23","2023-24",income_from_salary,regime)
+                  tax_calculation(fy_year,ay_year,regime)
                   print(f"Annual income entered is Rs {convert_to_lakh(income_from_salary)} lakh\n")
                   
                   
@@ -293,3 +297,6 @@ else:
                   section_80TTB = 0 # Not applicable as the taxpayer is not a senior citizen 
                   section_24b = 150000 # Interest on home loan
                   deduction = calculate_80_deduction(section_80C_ELSS, section_80C_PPF, section_80C_Life, section_80CCC, section_80CCD1, section_80CCD1b, section_80D, section_80E, section_80G, section_80TTA_Bank1, section_80TTA_Bank2, section_80TTA_Bank3, section_80TTA_Bank4, section_80TTA_Bank5, section_80TTB, section_24b)
+                  
+# close the file                  
+sys.stdout.close()
