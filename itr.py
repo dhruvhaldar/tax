@@ -131,7 +131,7 @@ def difference(tax_new,tax_old):
     print(f"Your tax difference is Rs {tax_new-tax_old}, you won't save any tax in the new regime.")
 
 
-def calculate_80_deduction(income, section_80C_ELSS, section_80C_PPF, section_80C_Life, section_80CCC, section_80CCD1, section_80CCD1b, section_80D, section_80E, section_80G, section_80TTA, section_80TTB, section_24b): 
+def calculate_80_deduction(section_80C_ELSS, section_80C_PPF, section_80C_Life, section_80CCC, section_80CCD1, section_80CCD1b, section_80D, section_80E, section_80G, section_80TTA_Bank1, section_80TTA_Bank2, section_80TTA_Bank3, section_80TTA_Bank4, section_80TTA_Bank5, section_80TTB, section_24b): 
   
   # Initialize the deduction amount 
   total_deductions = 0
@@ -146,6 +146,9 @@ def calculate_80_deduction(income, section_80C_ELSS, section_80C_PPF, section_80
   else:
     # Set the deduction amount to the total amount
     section_80CCE = total_80C
+  
+  # Add all interests from 5 Bank Accounts
+  section_80TTA = section_80TTA_Bank1 + section_80TTA_Bank2 + section_80TTA_Bank3 + section_80TTA_Bank4 + section_80TTA_Bank5
     
   # Add the deduction amount for each section
   total_deductions += section_80CCE # Deduction for investments or expenditures under Section 80C, 80CCC, 80CCD(1) and 80CCD(1b)
@@ -161,13 +164,13 @@ def calculate_80_deduction(income, section_80C_ELSS, section_80C_PPF, section_80
 
   # display input deductions
   print(f"\n2.1 Input")
-  print(f"Total 80CCE Deduction : Rs {section_80CCE}")
-  print(f"Medical 80D deduction : Rs {section_80D}")
-  print(f"Deduction for interest on education loan : Rs {section_80E}")
-  print(f"Deduction for donations to specified funds or institutions : Rs {section_80G}")
-  print(f"Deduction for interest income from savings account (for non-senior citizens) : Rs {section_80TTA}")
-  print(f"Deduction for interest income from deposits (for senior citizens) : Rs {section_80TTB}")
-  print(f"Home loan 24B deduction : Rs {section_24b}")
+  print(f"80CCE Deduction : Rs {section_80CCE}")
+  print(f"80D Deduction Medical : Rs {section_80D}")
+  print(f"80E Deduction for interest on education loan : Rs {section_80E}")
+  print(f"80G Deduction for donations to specified funds or institutions : Rs {section_80G}")
+  print(f"80TTA Deduction for interest income from savings account (for non-senior citizens) : Rs {section_80TTA}")
+  print(f"80TTB Deduction for interest income from deposits (for senior citizens) : Rs {section_80TTB}")
+  print(f"24B Home loan deduction : Rs {section_24b}")
 
 
   # display the total deductions
@@ -282,7 +285,11 @@ else:
                   section_80D = 25000 # Medical insurance premium for self and parents 
                   section_80E = 40000 # Interest on education loan 
                   section_80G = 10000 # Donation to a charitable trust 
-                  section_80TTA = 5000 # Interest income from savings account 
+                  section_80TTA_Bank1 = 1000 # Interest income from savings bank account 1
+                  section_80TTA_Bank2 = 1000 # Interest income from savings bank account 2
+                  section_80TTA_Bank3 = 1000 # Interest income from savings bank account 3
+                  section_80TTA_Bank4 = 2000 # Interest income from savings bank account 4
+                  section_80TTA_Bank5 = 0 # Interest income from savings bank account 5
                   section_80TTB = 0 # Not applicable as the taxpayer is not a senior citizen 
                   section_24b = 150000 # Interest on home loan
-                  deduction = calculate_80_deduction(income_from_salary, section_80C_ELSS, section_80C_PPF, section_80C_Life, section_80CCC, section_80CCD1, section_80CCD1b, section_80D, section_80E, section_80G, section_80TTA, section_80TTB, section_24b)
+                  deduction = calculate_80_deduction(section_80C_ELSS, section_80C_PPF, section_80C_Life, section_80CCC, section_80CCD1, section_80CCD1b, section_80D, section_80E, section_80G, section_80TTA_Bank1, section_80TTA_Bank2, section_80TTA_Bank3, section_80TTA_Bank4, section_80TTA_Bank5, section_80TTB, section_24b)
