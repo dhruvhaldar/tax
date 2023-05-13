@@ -7,7 +7,7 @@ def calculate_income_tax_old(total_income):
   tax = 0
   # apply the basic exemption limit of Rs. 2,50,000
   if total_income <= 250000:
-    print("You don't have to pay tax")
+    print(f"You don't have to pay tax")
     return tax
   else:
     total_income -= 250000
@@ -24,7 +24,9 @@ def calculate_income_tax_old(total_income):
       tax += slabs[i] * rates[i]
       total_income -= slabs[i]
   # apply the health and education cess of 4% on the tax amount
-  tax += tax * 0.04
+  cess = tax * 0.04
+  print(f"Health & Education cess is ₹{cess}.")
+  tax += cess
   
   # define a list of surcharge slabs and rates
   surcharge_slabs = [5000000 - (250000 + (250000 / .05) + (500000 / .2)), 10000000 - (250000 + (250000 / .05) + (500000 / .2) + (5000000 / .3)), float('inf')]
@@ -123,11 +125,11 @@ else:
                 # call the appropriate function based on the regime option and print the result
                 if regime>=1:
                   total_income_tax_old = calculate_income_tax_old(income)
-                  print(f"Your income tax under the old regime is ₹ {total_income_tax_old} .")
+                  print(f"Your income tax under the old regime is ₹ {total_income_tax_old}.")
                   total_income_tax_new = calculate_income_tax_new(income)
                   print(f"Your income tax under the new regime is ₹ {total_income_tax_new}.")
                   tax_difference = total_income_tax_new-total_income_tax_old
                   if tax_difference>=0 :
                     print(f"You will save ₹",tax_difference,"under new regime")
                   else :
-                    print(f"Tax difference is ₹", tax_difference,". You won't save any tax in the new regime") 
+                    print(f"Your tax difference is ₹", tax_difference,". You won't save any tax in the new regime") 
