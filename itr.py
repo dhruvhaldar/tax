@@ -1,6 +1,5 @@
 def tax_calculation(fy_year, ay_year, income, regime):
-  print(f"\n\n FY {fy_year} (AY {ay_year}) TAX CALCULATION")
-  print(f"Annual income entered is ₹ {income} lakh.")
+  print(f"\n\nFY {fy_year} (AY {ay_year}) TAX CALCULATION")
   
   if regime==1:
     print(f"You have selected the old regime")
@@ -120,7 +119,7 @@ def calculate_income_tax_new(total_income):
 
 def convert_to_lakh(income):
   lakh = income / 100000
-  return int(lakh)
+  return lakh
 
 def deductions_old(investment_80C,medical_80D,home_loan_24b):
 
@@ -181,7 +180,7 @@ else:
         # ask the user to enter their total income as an integer
         
         #income = input("Please enter your total income as an integer:\n")
-        income = 1150000 # Sample income
+        income = 115000 # Sample income
         
         # validate the input and convert it to an integer
         try:
@@ -197,6 +196,9 @@ else:
                   
                   # tax_calculation(FY_Year,AY_Year)
                   tax_calculation("2022-23","2023-24",income,regime)
+                  income_in_lakh=convert_to_lakh(income)
+                  print(f"Annual income entered is ₹ {income_in_lakh} lakh.")
+
                 
                 ##########################################################################################################
                 if regime==1:
