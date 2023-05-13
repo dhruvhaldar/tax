@@ -1,5 +1,5 @@
-def tax_calculation():
-  print(f"\n\nTAX CALCULATION")
+def tax_calculation(fy_year,ay_year):
+  print(f"\n\n FY {fy_year} (AY {ay_year}) TAX CALCULATION")
   print(f"Annual income entered is ₹ {convert_to_lakh(income)} lakh.")
   
   if regime==1:
@@ -157,6 +157,7 @@ def deductions_old():
 
 
 #################################################################################################################################
+
 # ask the user to select old or new regime as an option (1 or 2)
 regime = input("Please select your preferred regime:\n1.Old\n2.New\n")
 # validate the input and convert it to an integer
@@ -181,8 +182,10 @@ else:
             else:
                 # call the appropriate function based on the regime option and print the result
                 if regime>=1:
-                  tax_calculation()
-                  #########################################################################################################
+                  # tax_calculation(FY_Year,AY_Year)
+                  tax_calculation("2022-23","2023-24")
+                
+                ##########################################################################################################
                 if regime==1:
                   print(f"\nDEDUCTION CALCULATION")
                   deductions_old()
