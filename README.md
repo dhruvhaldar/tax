@@ -26,14 +26,14 @@ FY 2022-23 (AY 2023-24) TAX CALCULATION
 
 1.1 Input
 You have selected the old regime
-Annual income entered is ₹11.5 lakh
+Annual income entered is ₹15.0 lakh
 
 1.2 Output
-Health & Education cess (New regime) is ₹11500.0.
-Health & Education cess (Old regime) is ₹6300.0.
-You have to pay ₹180180.0 under old tax regime
-You have to pay ₹328900.0 under new tax regime
-You will save ₹148720.0 under new regime
+Health & Education cess (New regime) is ₹18000.0.
+Health & Education cess (Old regime) is ₹10500.0.
+You have to pay ₹300300.0 under old tax regime
+You have to pay ₹514800.0 under new tax regime
+You will save ₹214500.0 under new regime
 
 
 2. DEDUCTION CALCULATION
