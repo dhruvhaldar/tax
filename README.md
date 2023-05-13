@@ -21,4 +21,30 @@ For an income of 1500000, the tax calculation in the code will be as follows:
 
 
 ## Output
+```
+FY 2022-23 (AY 2023-24) TAX CALCULATION
 
+1. Income from salary
+
+1.1 Input
+You have selected the old regime
+Annual income entered is ₹11.5 lakh
+
+1.2 Output
+Health & Education cess (New regime) is ₹11500.0.
+Health & Education cess (Old regime) is ₹6300.0.
+You have to pay ₹180180.0 under old tax regime
+You have to pay ₹328900.0 under new tax regime
+You will save ₹148720.0 under new regime
+
+
+2. DEDUCTION CALCULATION
+
+2.1 Input
+80C Deduction : ₹60000
+Medical 80D deduction : ₹25000
+Home loan 24B deduction : ₹0
+
+2.2 Output
+Your total deductions under the old regime are ₹85000
+```
