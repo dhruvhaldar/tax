@@ -35,8 +35,8 @@ class TestCalculateIncomeFromSalaryTaxOld(unittest.TestCase):
 
 class TestCalculateIncomeFromSalaryTaxNew(unittest.TestCase):
 
-    # def test_tax_below_slab_one(self):
-    #     self.assertEqual(calculate_income_from_salary_tax_new(200000), 0)
+    def test_tax_below_slab_one(self):
+        self.assertEqual(calculate_income_from_salary_tax_new(200000), 0)
     
     # def test_tax_in_slab_one(self):
     #     self.assertEqual(calculate_income_from_salary_tax_new(300000), 2500)
