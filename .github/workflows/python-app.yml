@@ -37,3 +37,8 @@ jobs:
     - name: Test with unittest
       run: |
         python -m unittest discover -s . -p 'test_*.py'
+    - name: Coverage
+      run: |  
+        coverage run -m unittest discover
+        coverage xml
+        coverage report
