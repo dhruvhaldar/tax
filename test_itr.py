@@ -29,8 +29,8 @@ class TestCalculateIncomeFromSalaryTaxOld(unittest.TestCase):
         self.assertAlmostEqual(calculate_income_from_salary_tax_old(total_income_from_salary), expected_output)
         
     def test_calculate_income_from_salary_tax_slab2(self):
-        total_income_from_salary = 350000
-        expected_output = 5720
+        total_income_from_salary = 3500000
+        expected_output = 986700
         self.assertAlmostEqual(calculate_income_from_salary_tax_old(total_income_from_salary), expected_output)
 
 class TestCalculateIncomeFromSalaryTaxNew(unittest.TestCase):
