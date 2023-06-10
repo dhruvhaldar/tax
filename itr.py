@@ -52,6 +52,9 @@ def calculate_income_from_salary_tax_old(total_income_from_salary):
   # initialize the tax variable to zero
   tax = 0
   
+  # Negative income
+  if total_income_from_salary < 0:
+      raise AssertionError("Total income from salary cannot be negative.")
   # apply the basic exemption limit of Rs. 2,50,000
   if total_income_from_salary <= 250000:
     print(f"You don't have to pay tax")

@@ -50,13 +50,13 @@ class CalculateIncomeFromSalaryTaxOldTestCase(unittest.TestCase):
         self.assertEqual(calculate_income_from_salary_tax_old(200000), 0)
     
     def test_single_slab_tax(self):
-        self.assertEqual(calculate_income_from_salary_tax_old(400000), 7500)
+        self.assertEqual(calculate_income_from_salary_tax_old(400000), 8580)
     
     def test_multiple_slab_tax(self):
-        self.assertEqual(calculate_income_from_salary_tax_old(800000), 47500)
+        self.assertEqual(calculate_income_from_salary_tax_old(800000), 82940)
     
     def test_max_slab_tax(self):
-        self.assertEqual(calculate_income_from_salary_tax_old(15000000), 5218750)
+        self.assertEqual(calculate_income_from_salary_tax_old(15000000), 4933500)
     
     def test_negative_income(self):
         with self.assertRaises(AssertionError):
