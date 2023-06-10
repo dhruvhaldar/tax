@@ -1,5 +1,5 @@
-<img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/dhruvhaldar/tax/python-app.yml">
-
+<img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/dhruvhaldar/tax/python-app.yml"> <img alt="GitHub issues" src="https://img.shields.io/github/issues/dhruvhaldar/tax">
+<img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/dhruvhaldar/tax"> <img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/m/dhruvhaldar/tax"> <img alt="GitHub" src="https://img.shields.io/github/license/dhruvhaldar/tax">
 # Income Tax Calculation for salaried individuals
 
 Helps you to get ITR-related stuff using Python
