@@ -1,3 +1,5 @@
+<img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/dhruvhaldar/tax/python-app.yml">
+
 # Income Tax Calculation for salaried individuals
 
 Helps you to get ITR-related stuff using Python
